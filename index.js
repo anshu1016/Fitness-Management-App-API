@@ -49,8 +49,8 @@ initializeDatabase();
 
 //CALLING THE FUNCTION
 
-// const result= getExercises("john.doe@example.com","SecurePassword123");
-// console.log(result,"RESULT")
+const result= getExercises("john.doe@example.com","SecurePassword123");
+console.log(result,"RESULT")
 
 
 app.post('/api/user/exercises', authenticateJWT, async (req, res) => {

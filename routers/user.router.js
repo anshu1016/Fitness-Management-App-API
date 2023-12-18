@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const {User} = require('../model/fitness.model.js');
+const { User } = require('../model/fitness.model.js');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -15,9 +15,9 @@ router.post('/signup', async (req, res) => {
     const user = new User({
       emailAddress: req.body.email,
       password: hashedPassword,
-     profilePic:req.body.profilePic,
-      bio:req.body.bio,
-      otp:req.body.name,
+      profilePic: req.body.profilePic,
+      bio: req.body.bio,
+      otp: req.body.name,
     });
 
     const newUser = await user.save();
@@ -25,10 +25,10 @@ router.post('/signup', async (req, res) => {
     res.json({ token: token });
   } catch (error) {
     res.status(500).send('Error creating user');
-     console.error("Signup error:", error);
-  res.status(500).send('Error creating user')
+    console.error("Signup error:", error);
+    res.status(500).send('Error creating user')
   }
-  
+
 });
 
 router.post('/login', async (req, res) => {
